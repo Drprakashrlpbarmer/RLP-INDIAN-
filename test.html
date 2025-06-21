@@ -1,0 +1,65 @@
+# Create the HTML file content for Firebase media upload test
+html_content = """
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Firebase Upload | RLP Barmer</title>
+</head>
+<body style="font-family: sans-serif; text-align: center; padding: 40px; background-color: #f9f9f9;">
+  <h2>🖼️ Firebase Media Upload (Test)</h2>
+  <input type="file" id="fileInput" />
+  <button onclick="uploadMedia()">Upload</button>
+  <p id="status" style="color: green;"></p>
+  <div id="gallery" style="margin-top: 30px;"></div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+    import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-storage.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyApFNHvNIzFGRU-17x38QzzRQiLEH1ZuHY",
+      authDomain: "rlp-barmer.firebaseapp.com",
+      projectId: "rlp-barmer",
+      storageBucket: "rlp-barmer.appspot.com",
+      messagingSenderId: "102541179271",
+      appId: "1:102541179271:web:ec86fec899bda1ec4e7b22"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const storage = getStorage(app);
+
+    window.uploadMedia = async () => {
+      const file = document.getElementById("fileInput").files[0];
+      const status = document.getElementById("status");
+      if (!file) {
+        status.textContent = "कृपया पहले कोई फाइल चुनें।";
+        status.style.color = "red";
+        return;
+      }
+      try {
+        status.textContent = "Uploading...";
+        const storageRef = ref(storage, 'media/' + file.name);
+        await uploadBytes(storageRef, file);
+        const url = await getDownloadURL(storageRef);
+        document.getElementById("gallery").innerHTML += `<img src="${url}" width="200" style="margin:10px"/>`;
+        status.textContent = "✅ Upload सफल रहा!";
+        status.style.color = "green";
+      } catch (error) {
+        console.error("Upload error:", error);
+        status.textContent = "❌ Upload विफल रहा।";
+        status.style.color = "red";
+      }
+    };
+  </script>
+</body>
+</html>
+"""
+
+# Save the file
+file_path = "/mnt/data/firbase_upload_test.html"
+with open(file_path, "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+file_path
