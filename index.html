@@ -2285,3 +2285,28 @@
     </script>
 </body>
   </html>
+<!-- Firebase SDK Scripts -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js"></script>
+
+<script>
+  // आपकी असली Firebase Configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyCq4AFwBgFvNwY1upkncD5pxdUPmMfZ-nA",
+    authDomain: "rlp-barmer.firebaseapp.com",
+    projectId: "rlp-barmer",
+    storageBucket: "rlp-barmer.appspot.com",
+    messagingSenderId: "867073383781",
+    appId: "1:867073383781:web:8ee3e1b236d9968d2bb7b4"
+  };
+
+  // Firebase Initialization
+  firebase.initializeApp(firebaseConfig);
+
+  // Auth, Firestore, Storage Variables (आगे उपयोग के लिए)
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+  const storage = firebase.storage();
+      </script>
