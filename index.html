@@ -9,13 +9,16 @@
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <style>
         :root {
+            --saffron: #FF9933;
+            --green: #138808;
+            --blue: #1E90FF;
+            --dark-blue: #2C3E50;
+            --light: #F8F9FA;
             --primary: #FF6B00;
             --secondary: #2E8B57;
             --accent: #1E90FF;
-            --dark: #2C3E50;
-            --light: #F8F9FA;
-            --saffron: #FF9933;
             --text: #333333;
+            --white: #FFFFFF;
             --party-blue: #1a5fb4;
             --party-green: #26a269;
             --success: #27ae60;
@@ -47,7 +50,7 @@
             width: 100%;
             height: 100vh;
             z-index: 1000;
-            background: var(--dark);
+            background: var(--dark-blue);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -66,7 +69,7 @@
             width: 50%;
             height: 100%;
             background: linear-gradient(45deg, var(--primary), var(--saffron));
-            border: 5px solid var(--dark);
+            border: 5px solid var(--dark-blue);
             box-shadow: 0 0 20px rgba(0,0,0,0.5);
             transition: transform 1.5s ease-in-out;
             display: flex;
@@ -146,10 +149,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.8rem;
-            color: var(--primary);
-            font-weight: bold;
-            transition: all 0.3s ease;
+            overflow: hidden;
+            border: 2px solid var(--saffron);
+        }
+        
+        .logo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         .logo-text {
@@ -161,7 +168,7 @@
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1.5rem;
         }
         
         .nav-menu li a {
@@ -244,7 +251,8 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1580136605362-0c4cb6e34c8f?ixlib=rb-4.0.3') no-repeat center center/cover;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                         url('https://images.unsplash.com/photo-1580136605362-0c4cb6e34c8f?ixlib=rb-4.0.3') no-repeat center center/cover;
             height: 80vh;
             display: flex;
             align-items: center;
@@ -324,7 +332,7 @@
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 3rem;
-            color: var(--dark);
+            color: var(--dark-blue);
             position: relative;
         }
         
@@ -346,7 +354,7 @@
         
         .leaders-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
@@ -367,35 +375,26 @@
         }
         
         .leader-img {
-            height: 300px;
+            height: 320px;
             width: 100%;
             background-size: cover;
-            background-position: center;
+            background-position: top center;
             position: relative;
-        }
-        
-        .leader-img:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 50%;
-            background: linear-gradient(transparent, rgba(0,0,0,0.7));
         }
         
         .leader-info {
             padding: 1.5rem;
+            text-align: center;
         }
         
         .leader-name {
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
-            color: var(--dark);
+            color: var(--dark-blue);
         }
         
         .leader-position {
-            color: var(--primary);
+            color: var(--saffron);
             font-weight: 600;
             margin-bottom: 1rem;
         }
@@ -403,6 +402,7 @@
         .leader-desc {
             color: var(--text);
             line-height: 1.6;
+            font-size: 0.95rem;
         }
         
         /* Products Section */
@@ -434,13 +434,12 @@
         }
         
         .product-img {
-            height: 200px;
-            background: linear-gradient(45deg, var(--party-blue), var(--party-green));
+            height: 220px;
+            background-size: cover;
+            background-position: center;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 3rem;
-            color: white;
         }
         
         .product-info {
@@ -453,25 +452,28 @@
         .product-title {
             font-size: 1.3rem;
             margin-bottom: 0.5rem;
-            color: var(--dark);
+            color: var(--dark-blue);
+            text-align: center;
         }
         
         .product-desc {
             color: var(--text);
             margin-bottom: 1rem;
             flex-grow: 1;
+            text-align: center;
         }
         
         .product-link {
             display: inline-block;
             background: var(--secondary);
             color: white;
-            padding: 0.5rem 1.5rem;
+            padding: 0.7rem 1.8rem;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
-            align-self: flex-start;
+            align-self: center;
+            text-align: center;
         }
         
         .product-link:hover {
@@ -528,6 +530,7 @@
             font-size: 1.1rem;
             transform: translateY(100%);
             transition: transform 0.3s ease;
+            text-align: center;
         }
         
         .gallery-item:hover .gallery-title {
@@ -561,6 +564,13 @@
             box-shadow: 0 15px 40px rgba(0,0,0,0.15);
         }
         
+        .video-thumb {
+            height: 200px;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+        
         .video-card iframe {
             width: 100%;
             height: 250px;
@@ -570,12 +580,13 @@
         
         .video-info {
             padding: 1.5rem;
+            text-align: center;
         }
         
         .video-title {
             font-size: 1.3rem;
             margin-bottom: 0.5rem;
-            color: var(--dark);
+            color: var(--dark-blue);
         }
         
         /* News Section */
@@ -622,8 +633,8 @@
         
         .news-title {
             font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
+            margin-bottom: 0.8rem;
+            color: var(--dark-blue);
         }
         
         .news-desc {
@@ -733,112 +744,6 @@
             background: var(--saffron);
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        
-        .message {
-            margin-top: 1.5rem;
-            padding: 1rem;
-            border-radius: 8px;
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        .success {
-            background: rgba(46, 204, 113, 0.2);
-            border: 1px solid #2ecc71;
-            color: #27ae60;
-        }
-        
-        .error {
-            background: rgba(231, 76, 60, 0.2);
-            border: 1px solid #e74c3c;
-            color: #c0392b;
-        }
-        
-        /* Membership Card */
-        .membership-card-container {
-            display: none;
-            margin-top: 2rem;
-            background: rgba(255,255,255,0.2);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            animation: fadeIn 0.8s ease;
-        }
-        
-        .membership-card {
-            background: linear-gradient(135deg, var(--primary), var(--saffron));
-            border-radius: 15px;
-            padding: 2rem;
-            color: white;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            max-width: 400px;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .membership-card:before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            transform: rotate(30deg);
-        }
-        
-        .card-logo {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .card-title {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .member-name {
-            font-size: 1.5rem;
-            margin: 1rem 0;
-            padding: 0.5rem;
-            background: rgba(255,255,255,0.2);
-            border-radius: 8px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .member-id {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .download-btn {
-            background: white;
-            color: var(--primary);
-            border: none;
-            padding: 0.8rem 1.5rem;
-            font-size: 1rem;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .download-btn:hover {
-            background: #f1f1f1;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         /* Comment Section */
@@ -956,7 +861,7 @@
         
         .comment-author {
             font-weight: 600;
-            color: var(--dark);
+            color: var(--dark-blue);
         }
         
         .comment-date {
@@ -971,7 +876,7 @@
         
         /* Contact Section */
         .contact-section {
-            background: linear-gradient(to right, var(--dark), #1a2530);
+            background: linear-gradient(to right, var(--dark-blue), #1a2530);
             color: white;
         }
         
@@ -1269,7 +1174,7 @@
         
         /* Footer */
         footer {
-            background: var(--dark);
+            background: var(--dark-blue);
             color: white;
             padding: 3rem 2rem;
             text-align: center;
@@ -1387,7 +1292,7 @@
         .login-title {
             font-size: 2rem;
             margin-bottom: 2rem;
-            color: var(--dark);
+            color: var(--dark-blue);
         }
         
         .login-form .form-group {
@@ -1524,7 +1429,7 @@
             }
             
             .nav-menu li a {
-                color: var(--dark);
+                color: var(--dark-blue);
             }
             
             .mobile-toggle {
@@ -1665,7 +1570,9 @@
         <header>
             <div class="header-container">
                 <div class="logo">
-                    <div class="logo-img">RLP</div>
+                    <div class="logo-img">
+                        <img src="https://i.postimg.cc/YS4vqV1h/1000006651.jpg" alt="RLP Logo">
+                    </div>
                     <div class="logo-text">राष्ट्रीय लोकतांत्रिक पार्टी</div>
                 </div>
                 <ul class="nav-menu">
@@ -1702,40 +1609,214 @@
         <!-- Leaders Section -->
         <section class="section leaders-section" id="leaders">
             <h2 class="section-title">हमारे नेता</h2>
-            <div class="leaders-grid" id="leaders-container">
-                <!-- Leaders will be loaded dynamically -->
+            <div class="leaders-grid">
+                <div class="leader-card">
+                    <div class="leader-img" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://i.postimg.cc/zfqbFtTG/Ummeda-Ram-Beniwal.jpg')"></div>
+                    <div class="leader-info">
+                        <h3 class="leader-name">उम्मेद राम बेनीवाल</h3>
+                        <p class="leader-position">प्रदेश अध्यक्ष, RLP</p>
+                        <p class="leader-desc">RLP के प्रदेश अध्यक्ष और किसान नेता। राजस्थान में किसान आंदोलन के प्रमुख चेहरों में से एक।</p>
+                    </div>
+                </div>
+                
+                <div class="leader-card">
+                    <div class="leader-img" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://i.postimg.cc/vZLQPTqb/5-IYPGA5l-400x400.png')"></div>
+                    <div class="leader-info">
+                        <h3 class="leader-name">हनुमान बेनीवाल</h3>
+                        <p class="leader-position">राष्ट्रीय संयोजक, RLP</p>
+                        <p class="leader-desc">2018 में स्थापित राष्ट्रीय लोकतांत्रिक पार्टी के संस्थापक। युवाओं, किसानों और मजदूरों के हक के लिए संघर्षरत।</p>
+                    </div>
+                </div>
+                
+                <div class="leader-card">
+                    <div class="leader-img" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://i.postimg.cc/cH604msL/In-Shot-20250622-174226544.jpg')"></div>
+                    <div class="leader-info">
+                        <h3 class="leader-name">डॉ. प्रकाश चौधरी</h3>
+                        <p class="leader-position">जिला संयोजक, बाड़मेर</p>
+                        <p class="leader-desc">युवा चेहरा और सोशल मीडिया प्रमुख। बाड़मेर-जैसलमेर बेल्ट में RLP की लोकप्रियता बढ़ाने में अग्रणी भूमिका।</p>
+                    </div>
+                </div>
+                
+                <div class="leader-card">
+                    <div class="leader-img" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://i.postimg.cc/BvSJR3kD/Narayan-Beniwal-MLA.jpg')"></div>
+                    <div class="leader-info">
+                        <h3 class="leader-name">नारायण बेनीवाल</h3>
+                        <p class="leader-position">विधायक, खाजूवाला</p>
+                        <p class="leader-desc">RLP के वरिष्ठ नेता और खाजूवाला से विधायक। किसानों के हक की लड़ाई में अग्रणी।</p>
+                    </div>
+                </div>
             </div>
         </section>
         
         <!-- Products Section -->
         <section class="section products-section" id="products">
             <h2 class="section-title">RLP उत्पाद</h2>
-            <div class="products-container" id="products-container">
-                <!-- Products will be loaded dynamically -->
+            <div class="products-container">
+                <div class="product-card">
+                    <div class="product-img" style="background: url('https://i.postimg.cc/D09CHqfZ/hanuman-beniwal.jpg') center/cover"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">RLP विचारधारा पुस्तिका</h3>
+                        <p class="product-desc">पार्टी की मूल विचारधारा, सिद्धांतों और भविष्य की योजनाओं पर विस्तृत जानकारी।</p>
+                        <a href="https://rashtriyaloktantrikparty0.myspreadshop.com/hanuman+beniwal-A67ab69d701e0795b39254162?productType=405&sellable=ybzeRnY4k2iLXn9o7g7E-405-23&appearance=1&srsltid=AfmBOoqi0_Uren0s9t8hQJ7IbexCvQNq0d20qjdT_bJG6VO4IutrJt8D98A&utm_content=YT3-M0L9g_n2zHPjf8Ap8ZXD_GFNOwYokeQUma370FLLBub6nCbeEROWKNu5fVkNIko_sE2218qRCO5Hz_ChEBIqr_Fzj9UmYlVMMlIPsQEENOkU&utm_term=UC2fAmjtk6p6QtjcGbLgxQAw&utm_medium=product_shelf&utm_source=youtube" class="product-link">अधिक जानें</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img" style="background: url('https://i.postimg.cc/8k7T8NPQ/hanuman-beniwal-1.jpg') center/cover"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">RLP मर्चेंडाइज</h3>
+                        <p class="product-desc">पार्टी के रंगों और प्रतीक चिन्ह वाले टी-शर्ट, टोपी और अन्य सामग्री।</p>
+                        <a href="https://rashtriyaloktantrikparty0.myspreadshop.com/hanuman+beniwal-A67ab69d701e0795b39254162?productType=405&sellable=ybzeRnY4k2iLXn9o7g7E-405-23&appearance=1&srsltid=AfmBOoqi0_Uren0s9t8hQJ7IbexCvQNq0d20qjdT_bJG6VO4IutrJt8D98A&utm_content=YT3-M0L9g_n2zHPjf8Ap8ZXD_GFNOwYokeQUma370FLLBub6nCbeEROWKNu5fVkNIko_sE2218qRCO5Hz_ChEBIqr_Fzj9UmYlVMMlIPsQEENOkU&utm_term=UC2fAmjtk6p6QtjcGbLgxQAw&utm_medium=product_shelf&utm_source=youtube" class="product-link">अधिक जानें</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img" style="background: url('https://i.postimg.cc/59DbbT6H/hanuman-beniwal-2.jpg') center/cover"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">RLP मोबाइल ऐप</h3>
+                        <p class="product-desc">पार्टी की नवीनतम गतिविधियों, रैलियों और कार्यक्रमों से अपडेट रहें।</p>
+                        <a href="https://rashtriyaloktantrikparty0.myspreadshop.com/hanuman+beniwal-A67ab69d701e0795b39254162?productType=405&sellable=ybzeRnY4k2iLXn9o7g7E-405-23&appearance=1&srsltid=AfmBOoqi0_Uren0s9t8hQJ7IbexCvQNq0d20qjdT_bJG6VO4IutrJt8D98A&utm_content=YT3-M0L9g_n2zHPjf8Ap8ZXD_GFNOwYokeQUma370FLLBub6nCbeEROWKNu5fVkNIko_sE2218qRCO5Hz_ChEBIqr_Fzj9UmYlVMMlIPsQEENOkU&utm_term=UC2fAmjtk6p6QtjcGbLgxQAw&utm_medium=product_shelf&utm_source=youtube" class="product-link">अधिक जानें</a>
+                    </div>
+                </div>
             </div>
         </section>
         
         <!-- Gallery Section -->
         <section class="section gallery-section" id="gallery">
             <h2 class="section-title">गैलरी</h2>
-            <div class="gallery-container" id="gallery-container">
-                <!-- Gallery items will be loaded dynamically -->
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/3NSLrXxY/48294c9415e7676cd649c83156c0f3e91719494523702304-original.jpg" alt="रैली" class="gallery-img">
+                    <div class="gallery-title">रैली 2023</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/P5BR8Qzq/Hanuman-Beniwal-news-2025-05-f5977541e4b03f70223be809b321043a.jpg" alt="हनुमान बेनीवाल" class="gallery-img">
+                    <div class="gallery-title">हनुमान बेनीवाल</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/xCdMfWJN/hanuman-beniwal-1538292262.jpg" alt="जनसभा" class="gallery-img">
+                    <div class="gallery-title">जनसभा</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/8zVKbBnX/Hanuman-Beniwal-MLA.jpg" alt="नेता जी" class="gallery-img">
+                    <div class="gallery-title">नेता जी</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/76B1Sx8N/images-12.jpg" alt="ग्रामीण सम्मेलन" class="gallery-img">
+                    <div class="gallery-title">ग्रामीण सम्मेलन</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/W3p6DdK3/images-13.jpg" alt="राजनीतिक बैठक" class="gallery-img">
+                    <div class="gallery-title">राजनीतिक बैठक</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/pdJJXfs4/images-14.jpg" alt="भाषण" class="gallery-img">
+                    <div class="gallery-title">नेताजी का भाषण</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/WpH63b7N/images-15.jpg" alt="युवा प्रतिनिधि" class="gallery-img">
+                    <div class="gallery-title">युवा प्रतिनिधि</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/QMmcrXtr/images-16.jpg" alt="रैली दृश्य" class="gallery-img">
+                    <div class="gallery-title">रैली दृश्य</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/hGcVwJKr/images-17.jpg" alt="पार्टी कार्यालय" class="gallery-img">
+                    <div class="gallery-title">पार्टी कार्यालय</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/fytdXmvw/images-18.jpg" alt="जनसंपर्क" class="gallery-img">
+                    <div class="gallery-title">जनसंपर्क</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/2ysZxyHn/images-19.jpg" alt="समर्थक" class="gallery-img">
+                    <div class="gallery-title">समर्थक</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/Qx75dgtm/images-20.jpg" alt="बैठक" class="gallery-img">
+                    <div class="gallery-title">बैठक</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/zGSgnJTR/images-21.jpg" alt="प्रेस कॉन्फ्रेंस" class="gallery-img">
+                    <div class="gallery-title">प्रेस कॉन्फ्रेंस</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/B6wDXMHY/In-Shot-20250622-174313229.jpg" alt="डॉ. प्रकाश चौधरी" class="gallery-img">
+                    <div class="gallery-title">डॉ. प्रकाश चौधरी</div>
+                </div>
             </div>
         </section>
         
         <!-- Video Section -->
         <section class="section video-section" id="videos">
             <h2 class="section-title">वीडियो</h2>
-            <div class="video-container" id="video-container">
-                <!-- Video items will be loaded dynamically -->
+            <div class="video-container">
+                <div class="video-card">
+                    <div class="video-thumb" style="background: url('https://i.postimg.cc/13MtQxrP/dli8ctig-hanuman-beniwal-625x300-20-June-25.jpg') center/cover"></div>
+                    <div class="video-info">
+                        <h3 class="video-title">राजस्थान में RLP का प्रभाव</h3>
+                        <iframe src="https://www.youtube.com/embed/o0xv4FijwzE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-thumb" style="background: url('https://i.postimg.cc/QtcZj1Z5/fv4at0o-hanuman-beniwal-625x300-29-April-25.jpg') center/cover"></div>
+                    <div class="video-info">
+                        <h3 class="video-title">युवा नेता सम्मेलन</h3>
+                        <iframe src="https://www.youtube.com/embed/ATpDZJ8CSDc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-thumb" style="background: url('https://i.postimg.cc/TwczFG6v/IMG-20250620-WA0011.jpg') center/cover"></div>
+                    <div class="video-info">
+                        <h3 class="video-title">हनुमान बेनीवाल का भाषण</h3>
+                        <iframe src="https://www.youtube.com/embed/v0uCM3G8GBc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
             </div>
         </section>
         
         <!-- News Section -->
         <section class="section news-section" id="news">
             <h2 class="section-title">समाचार</h2>
-            <div class="news-container" id="news-container">
-                <!-- News items will be loaded dynamically -->
+            <div class="news-container">
+                <div class="news-card">
+                    <div class="news-img" style="background: url('https://i.postimg.cc/pL3kGQTn/BAN604854.jpg') center/cover"></div>
+                    <div class="news-info">
+                        <h3 class="news-title">राकेश बिश्नोई को मिला न्याय की दिशा में बड़ा कदम</h3>
+                        <p class="news-desc">छात्र नेता राकेश बिश्नोई हत्याकांड में जनता के जबरदस्त आक्रोश, सोशल मीडिया मुहिम और राजनीतिक दबाव के चलते आखिरकार न्याय की दिशा में ठोस कार्रवाई शुरू हुई। RLP व युवाओं के लगातार संघर्ष ने इस केस को राष्ट्रीय मुद्दा बना दिया।</p>
+                        <p class="news-date">23 जून 2025</p>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-img" style="background: url('https://i.postimg.cc/nhX0GSHJ/IMG-20250623-WA0005.jpg') center/cover"></div>
+                    <div class="news-info">
+                        <h3 class="news-title">निर्मल चौधरी की गिरफ्तारी</h3>
+                        <p class="news-desc">मामले में आरोपों के घेरे में आए छात्र नेता निर्मल चौधरी को पुलिस ने गिरफ्तार किया। लगातार बढ़ते जनदबाव और सबूतों के आधार पर यह गिरफ्तारी हुई, जिसे जनता ने न्याय की जीत माना।</p>
+                        <p class="news-date">23 जून 2025</p>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-img" style="background: url('https://i.postimg.cc/X7HsF66L/IMG-20250623-WA0006.jpg') center/cover"></div>
+                    <div class="news-info">
+                        <h3 class="news-title">निर्मल चौधरी को RLP से कोई संबंध नहीं</h3>
+                        <p class="news-desc">राष्ट्रीय लोकतांत्रिक पार्टी ने स्पष्ट किया है कि निर्मल चौधरी का पार्टी से कोई संबंध नहीं है और न ही पार्टी ऐसे किसी कृत्य को समर्थन देती है। पार्टी पूरी तरह राकेश बिश्नोई और उनके परिवार के साथ खड़ी है।</p>
+                        <p class="news-date">22 जून 2025</p>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-img" style="background: url('https://i.postimg.cc/NffN5fSL/IMG-20250623-WA0011.jpg') center/cover"></div>
+                    <div class="news-info">
+                        <h3 class="news-title">परिजनों और प्रशासन में बनी सहमति, धरना समाप्त</h3>
+                        <p class="news-desc">लगातार धरने पर बैठे राकेश बिश्नोई के परिजन व ग्रामीण आखिरकार प्रशासन से बातचीत के बाद बनी सहमति के तहत धरना स्थल से शांतिपूर्ण तरीके से हटे। परिजनों ने चेताया कि यदि न्याय में देरी हुई तो आंदोलन और तेज होगा।</p>
+                        <p class="news-date">22 जून 2025</p>
+                    </div>
+                </div>
             </div>
         </section>
         
@@ -1774,7 +1855,7 @@
                 <div class="membership-card-container" id="membership-card-container">
                     <div class="membership-card" id="card-to-download">
                         <div class="card-logo">
-                            <i class="fas fa-landmark"></i>
+                            <img src="https://i.postimg.cc/YS4vqV1h/1000006651.jpg" alt="RLP Logo">
                         </div>
                         <h3 class="card-title">राष्ट्रीय लोकतांत्रिक पार्टी</h3>
                         <p>सदस्यता कार्ड</p>
@@ -1804,7 +1885,23 @@
                 </form>
                 
                 <div class="comments-list" id="comments-list">
-                    <!-- Comments will be loaded dynamically -->
+                    <div class="comment">
+                        <div class="comment-header">
+                            <div class="comment-avatar">R</div>
+                            <div class="comment-author">रमेश कुमार</div>
+                            <div class="comment-date">22 जून 2025</div>
+                        </div>
+                        <div class="comment-content">RLP हमारे क्षेत्र के विकास के लिए अच्छा काम कर रही है। युवाओं के लिए अच्छे कार्यक्रम हैं।</div>
+                    </div>
+                    
+                    <div class="comment">
+                        <div class="comment-header">
+                            <div class="comment-avatar">S</div>
+                            <div class="comment-author">सीमा शर्मा</div>
+                            <div class="comment-date">20 जून 2025</div>
+                        </div>
+                        <div class="comment-content">किसानों की समस्याओं को हल करने के लिए धन्यवाद। हम आपके साथ हैं!</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1949,7 +2046,16 @@
                                 </tr>
                             </thead>
                             <tbody id="members-table">
-                                <!-- Members will be loaded dynamically -->
+                                <tr>
+                                    <td>RLP1234</td>
+                                    <td>अमित शर्मा</td>
+                                    <td>amit@example.com</td>
+                                    <td>9876543210</td>
+                                    <td>जोधपुर, राजस्थान</td>
+                                    <td>
+                                        <button class="action-btn delete">हटाएं</button>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -1994,7 +2100,15 @@
                                 </tr>
                             </thead>
                             <tbody id="leaders-table">
-                                <!-- Leaders will be loaded dynamically -->
+                                <tr>
+                                    <td>उम्मेद राम बेनीवाल</td>
+                                    <td>प्रदेश अध्यक्ष</td>
+                                    <td>राजस्थान में किसान आंदोलन के प्रमुख चेहरों में से एक</td>
+                                    <td>
+                                        <button class="action-btn edit">संपादन</button>
+                                        <button class="action-btn delete">हटाएं</button>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -2030,7 +2144,14 @@
                                 </tr>
                             </thead>
                             <tbody id="gallery-table">
-                                <!-- Gallery items will be loaded dynamically -->
+                                <tr>
+                                    <td>रैली 2023</td>
+                                    <td><img src="https://i.postimg.cc/3NSLrXxY/48294c9415e7676cd649c83156c0f3e91719494523702304-original.jpg" alt="रैली" style="width: 100px;"></td>
+                                    <td>
+                                        <button class="action-btn edit">संपादन</button>
+                                        <button class="action-btn delete">हटाएं</button>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -2054,6 +2175,10 @@
                                 <label for="video-url">वीडियो URL (YouTube)</label>
                                 <input type="text" id="video-url" placeholder="YouTube एम्बेड URL" required>
                             </div>
+                            <div class="form-group">
+                                <label for="video-thumb">थंबनेल URL</label>
+                                <input type="text" id="video-thumb" placeholder="थंबनेल URL" required>
+                            </div>
                             <button type="button" class="submit-btn" id="add-video-btn">वीडियो जोड़ें</button>
                         </div>
                         
@@ -2066,7 +2191,14 @@
                                 </tr>
                             </thead>
                             <tbody id="videos-table">
-                                <!-- Videos will be loaded dynamically -->
+                                <tr>
+                                    <td>राजस्थान में RLP का प्रभाव</td>
+                                    <td>https://www.youtube.com/embed/o0xv4FijwzE</td>
+                                    <td>
+                                        <button class="action-btn edit">संपादन</button>
+                                        <button class="action-btn delete">हटाएं</button>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -2107,7 +2239,15 @@
                                 </tr>
                             </thead>
                             <tbody id="news-table">
-                                <!-- News items will be loaded dynamically -->
+                                <tr>
+                                    <td>राकेश बिश्नोई को मिला न्याय की दिशा में बड़ा कदम</td>
+                                    <td>छात्र नेता राकेश बिश्नोई हत्याकांड में जनता के जबरदस्त आक्रोश...</td>
+                                    <td><img src="https://i.postimg.cc/pL3kGQTn/BAN604854.jpg" alt="समाचार" style="width: 80px;"></td>
+                                    <td>
+                                        <button class="action-btn edit">संपादन</button>
+                                        <button class="action-btn delete">हटाएं</button>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -2135,6 +2275,10 @@
                                 <label for="product-link">लिंक</label>
                                 <input type="text" id="product-link" placeholder="उत्पाद लिंक URL" required>
                             </div>
+                            <div class="form-group">
+                                <label for="product-image">छवि URL</label>
+                                <input type="text" id="product-image" placeholder="छवि URL" required>
+                            </div>
                             <button type="button" class="submit-btn" id="add-product-btn">उत्पाद जोड़ें</button>
                         </div>
                         
@@ -2148,7 +2292,15 @@
                                 </tr>
                             </thead>
                             <tbody id="products-table">
-                                <!-- Products will be loaded dynamically -->
+                                <tr>
+                                    <td>RLP विचारधारा पुस्तिका</td>
+                                    <td>पार्टी की मूल विचारधारा, सिद्धांतों और भविष्य की योजनाओं पर विस्तृत जानकारी</td>
+                                    <td>https://example.com/product1</td>
+                                    <td>
+                                        <button class="action-btn edit">संपादन</button>
+                                        <button class="action-btn delete">हटाएं</button>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -2172,7 +2324,14 @@
                                 </tr>
                             </thead>
                             <tbody id="comments-table">
-                                <!-- Comments will be loaded dynamically -->
+                                <tr>
+                                    <td>रमेश कुमार</td>
+                                    <td>RLP हमारे क्षेत्र के विकास के लिए अच्छा काम कर रही है...</td>
+                                    <td>22 जून 2025</td>
+                                    <td>
+                                        <button class="action-btn delete">हटाएं</button>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -2188,7 +2347,7 @@
                             <div class="form-group">
                                 <label>वर्तमान लोगो:</label>
                                 <div class="image-preview">
-                                    <img id="current-logo-preview" src="" alt="Current Logo" style="max-width: 100px;">
+                                    <img id="current-logo-preview" src="https://i.postimg.cc/YS4vqV1h/1000006651.jpg" alt="Current Logo" style="max-width: 100px;">
                                 </div>
                             </div>
                             <button type="button" class="submit-btn" id="update-logo-btn">लोगो अपडेट करें</button>
@@ -2293,10 +2452,25 @@
             initProductButtons();
             initAdminPanel();
             initSearch();
-            loadAllData();
             
-            // Initialize sample data
-            initializeSampleData();
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        const navMenu = document.querySelector('.nav-menu');
+                        navMenu.classList.remove('active');
+                    }
+                });
+            });
         });
         
         // Mobile menu toggle
@@ -2323,20 +2497,6 @@
                     performSearch(globalSearch.value);
                 }
             });
-            
-            // Admin search functionality
-            document.querySelectorAll('.admin-search input').forEach(input => {
-                input.addEventListener('keyup', function() {
-                    const tableId = this.dataset.table + '-table';
-                    const table = document.getElementById(tableId);
-                    const searchTerm = this.value.toLowerCase();
-                    
-                    Array.from(table.querySelectorAll('tr')).forEach(row => {
-                        const rowText = row.textContent.toLowerCase();
-                        row.style.display = rowText.includes(searchTerm) ? '' : 'none';
-                    });
-                });
-            });
         }
         
         // Perform search
@@ -2352,116 +2512,7 @@
             const resultsContainer = document.getElementById('search-results-container');
             resultsContainer.innerHTML = '';
             
-            // Search in different categories
-            const leadersResults = searchInLeaders(term);
-            const newsResults = searchInNews(term);
-            const productsResults = searchInProducts(term);
-            
-            if (leadersResults.length === 0 && newsResults.length === 0 && productsResults.length === 0) {
-                document.getElementById('no-results').style.display = 'block';
-                return;
-            }
-            
-            document.getElementById('no-results').style.display = 'none';
-            
-            // Display results
-            if (leadersResults.length > 0) {
-                displaySearchResults('नेता', leadersResults, 'leaders');
-            }
-            
-            if (newsResults.length > 0) {
-                displaySearchResults('समाचार', newsResults, 'news');
-            }
-            
-            if (productsResults.length > 0) {
-                displaySearchResults('उत्पाद', productsResults, 'products');
-            }
-            
-            // Scroll to results
-            document.getElementById('search-results').scrollIntoView({ behavior: 'smooth' });
-        }
-        
-        // Search in leaders
-        function searchInLeaders(term) {
-            const leaders = JSON.parse(localStorage.getItem('rlp_leaders')) || [];
-            return leaders.filter(leader => 
-                leader.name.toLowerCase().includes(term) || 
-                leader.position.toLowerCase().includes(term) ||
-                leader.description.toLowerCase().includes(term)
-            );
-        }
-        
-        // Search in news
-        function searchInNews(term) {
-            const news = JSON.parse(localStorage.getItem('rlp_news')) || [];
-            return news.filter(item => 
-                item.title.toLowerCase().includes(term) || 
-                item.description.toLowerCase().includes(term)
-            );
-        }
-        
-        // Search in products
-        function searchInProducts(term) {
-            const products = JSON.parse(localStorage.getItem('rlp_products')) || [];
-            return products.filter(product => 
-                product.name.toLowerCase().includes(term) || 
-                product.description.toLowerCase().includes(term)
-            );
-        }
-        
-        // Display search results
-        function displaySearchResults(title, items, type) {
-            const resultsContainer = document.getElementById('search-results-container');
-            const categoryDiv = document.createElement('div');
-            categoryDiv.className = 'result-category';
-            
-            categoryDiv.innerHTML = `<h3>${title}</h3><div class="${type}-grid" id="${type}-results"></div>`;
-            resultsContainer.appendChild(categoryDiv);
-            
-            const grid = document.getElementById(`${type}-results`);
-            
-            items.forEach(item => {
-                let itemHtml = '';
-                
-                if (type === 'leaders') {
-                    itemHtml = `
-                        <div class="leader-card">
-                            <div class="leader-img" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('${item.photo}') center/cover"></div>
-                            <div class="leader-info">
-                                <h3 class="leader-name">${item.name}</h3>
-                                <p class="leader-position">${item.position}</p>
-                                <p class="leader-desc">${item.description.substring(0, 100)}...</p>
-                            </div>
-                        </div>
-                    `;
-                } else if (type === 'news') {
-                    itemHtml = `
-                        <div class="news-card">
-                            <div class="news-img" style="background: url('${item.image}') center/cover"></div>
-                            <div class="news-info">
-                                <h3 class="news-title">${item.title}</h3>
-                                <p class="news-desc">${item.description.substring(0, 100)}...</p>
-                                <p class="news-date">${item.date}</p>
-                            </div>
-                        </div>
-                    `;
-                } else if (type === 'products') {
-                    itemHtml = `
-                        <div class="product-card">
-                            <div class="product-img">
-                                <i class="fas fa-box"></i>
-                            </div>
-                            <div class="product-info">
-                                <h3 class="product-title">${item.name}</h3>
-                                <p class="product-desc">${item.description.substring(0, 100)}...</p>
-                                <a href="${item.link}" class="product-link">अधिक जानें</a>
-                            </div>
-                        </div>
-                    `;
-                }
-                
-                grid.innerHTML += itemHtml;
-            });
+            document.getElementById('no-results').style.display = 'block';
         }
         
         // Admin panel access
@@ -2483,8 +2534,6 @@
                         top: document.querySelector('.admin-panel').offsetTop,
                         behavior: 'smooth'
                     });
-                    loadAdminData();
-                    updateStats();
                 } else {
                     document.getElementById('login-message').textContent = 'गलत यूजर नाम या पासवर्ड';
                     document.getElementById('login-message').style.display = 'block';
@@ -2517,23 +2566,8 @@
                     
                     const tabId = btn.getAttribute('data-tab');
                     document.getElementById(`${tabId}-tab`).classList.add('active');
-                    
-                    // Special handling for logo tab
-                    if (tabId === 'logo') {
-                        document.getElementById('current-logo-preview').src = localStorage.getItem('rlp_logo_url') || '';
-                    }
                 });
             });
-            
-            // Initialize admin forms
-            initAdminForms();
-        }
-        
-        // Update admin stats
-        function updateStats() {
-            document.getElementById('members-count').textContent = (JSON.parse(localStorage.getItem('rlp_members')) || []).length;
-            document.getElementById('comments-count').textContent = (JSON.parse(localStorage.getItem('rlp_comments')) || []).length;
-            document.getElementById('news-count').textContent = (JSON.parse(localStorage.getItem('rlp_news')) || []).length;
         }
         
         // Handle admin link clicks
@@ -2547,191 +2581,12 @@
                     top: document.querySelector('.admin-panel').offsetTop,
                     behavior: 'smooth'
                 });
-                loadAdminData();
-                updateStats();
             }
         }
         
         // Check if user is logged in
         function isLoggedIn() {
             return localStorage.getItem('isAdminLoggedIn') === 'true';
-        }
-        
-        // Load all data
-        function loadAllData() {
-            loadLeaders();
-            loadProducts();
-            loadGallery();
-            loadVideos();
-            loadNews();
-            loadComments();
-        }
-        
-        // Load admin data
-        function loadAdminData() {
-            loadMembers();
-            loadAdminLeaders();
-            loadAdminProducts();
-            loadAdminComments();
-            loadAdminGallery();
-            loadAdminVideos();
-            loadAdminNews();
-        }
-        
-        // Initialize admin forms
-        function initAdminForms() {
-            // Add leader functionality
-            document.getElementById('add-leader-btn').addEventListener('click', addLeader);
-            
-            // Add gallery item functionality
-            document.getElementById('add-gallery-btn').addEventListener('click', addGalleryItem);
-            
-            // Add product functionality
-            document.getElementById('add-product-btn').addEventListener('click', addProduct);
-            
-            // Add video functionality
-            document.getElementById('add-video-btn').addEventListener('click', addVideo);
-            
-            // Add news functionality
-            document.getElementById('add-news-btn').addEventListener('click', addNews);
-            
-            // Update logo functionality
-            document.getElementById('update-logo-btn').addEventListener('click', updateLogo);
-            
-            // Export members functionality
-            document.getElementById('export-members').addEventListener('click', exportMembers);
-        }
-        
-        // Load leaders for the main page
-        function loadLeaders() {
-            const leadersContainer = document.getElementById('leaders-container');
-            const leaders = JSON.parse(localStorage.getItem('rlp_leaders')) || [];
-            
-            leadersContainer.innerHTML = '';
-            
-            leaders.forEach(leader => {
-                const leaderCard = document.createElement('div');
-                leaderCard.className = 'leader-card';
-                leaderCard.innerHTML = `
-                    <div class="leader-img" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('${leader.photo}') center/cover"></div>
-                    <div class="leader-info">
-                        <h3 class="leader-name">${leader.name}</h3>
-                        <p class="leader-position">${leader.position}</p>
-                        <p class="leader-desc">${leader.description}</p>
-                    </div>
-                `;
-                leadersContainer.appendChild(leaderCard);
-            });
-        }
-        
-        // Load products for the main page
-        function loadProducts() {
-            const productsContainer = document.getElementById('products-container');
-            const products = JSON.parse(localStorage.getItem('rlp_products')) || [];
-            
-            productsContainer.innerHTML = '';
-            
-            products.forEach(product => {
-                const productCard = document.createElement('div');
-                productCard.className = 'product-card';
-                productCard.innerHTML = `
-                    <div class="product-img">
-                        <i class="fas fa-box"></i>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title">${product.name}</h3>
-                        <p class="product-desc">${product.description}</p>
-                        <a href="${product.link}" class="product-link">अधिक जानें</a>
-                    </div>
-                `;
-                productsContainer.appendChild(productCard);
-            });
-        }
-        
-        // Load gallery for the main page
-        function loadGallery() {
-            const galleryContainer = document.getElementById('gallery-container');
-            const gallery = JSON.parse(localStorage.getItem('rlp_gallery')) || [];
-            
-            galleryContainer.innerHTML = '';
-            
-            gallery.forEach(item => {
-                const galleryItem = document.createElement('div');
-                galleryItem.className = 'gallery-item';
-                galleryItem.innerHTML = `
-                    <img src="${item.image}" alt="${item.title}" class="gallery-img">
-                    <div class="gallery-title">${item.title}</div>
-                `;
-                galleryContainer.appendChild(galleryItem);
-            });
-        }
-        
-        // Load videos for the main page
-        function loadVideos() {
-            const videoContainer = document.getElementById('video-container');
-            const videos = JSON.parse(localStorage.getItem('rlp_videos')) || [];
-            
-            videoContainer.innerHTML = '';
-            
-            videos.forEach(video => {
-                const videoCard = document.createElement('div');
-                videoCard.className = 'video-card';
-                videoCard.innerHTML = `
-                    <iframe src="${video.url}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <div class="video-info">
-                        <h3 class="video-title">${video.title}</h3>
-                    </div>
-                `;
-                videoContainer.appendChild(videoCard);
-            });
-        }
-        
-        // Load news for the main page
-        function loadNews() {
-            const newsContainer = document.getElementById('news-container');
-            const news = JSON.parse(localStorage.getItem('rlp_news')) || [];
-            
-            newsContainer.innerHTML = '';
-            
-            news.forEach(item => {
-                const newsCard = document.createElement('div');
-                newsCard.className = 'news-card';
-                newsCard.innerHTML = `
-                    <div class="news-img" style="background: url('${item.image}') center/cover"></div>
-                    <div class="news-info">
-                        <h3 class="news-title">${item.title}</h3>
-                        <p class="news-desc">${item.description}</p>
-                        <p class="news-date">${item.date}</p>
-                    </div>
-                `;
-                newsContainer.appendChild(newsCard);
-            });
-        }
-        
-        // Load comments for the main page
-        function loadComments() {
-            const commentsList = document.getElementById('comments-list');
-            const comments = JSON.parse(localStorage.getItem('rlp_comments')) || [];
-            
-            commentsList.innerHTML = '';
-            
-            comments.forEach(comment => {
-                const newComment = document.createElement('div');
-                newComment.className = 'comment';
-                
-                const avatarLetter = comment.name.charAt(0).toUpperCase();
-                
-                newComment.innerHTML = `
-                    <div class="comment-header">
-                        <div class="comment-avatar">${avatarLetter}</div>
-                        <div class="comment-author">${comment.name}</div>
-                        <div class="comment-date">${comment.date}</div>
-                    </div>
-                    <div class="comment-content">${comment.text}</div>
-                `;
-                
-                commentsList.appendChild(newComment);
-            });
         }
         
         // Membership form functionality
@@ -2754,19 +2609,6 @@
                 
                 const uniqueId = 'RLP' + Math.floor(1000 + Math.random() * 9000);
                 
-                const memberData = {
-                    name,
-                    email,
-                    phone,
-                    address,
-                    id: uniqueId,
-                    date: new Date().toLocaleDateString('hi-IN')
-                };
-                
-                const existingMembers = JSON.parse(localStorage.getItem('rlp_members')) || [];
-                existingMembers.push(memberData);
-                localStorage.setItem('rlp_members', JSON.stringify(existingMembers));
-                
                 document.getElementById('card-name').textContent = name;
                 document.getElementById('card-id').textContent = 'आईडी: ' + uniqueId;
                 document.getElementById('membership-card-container').style.display = 'block';
@@ -2778,10 +2620,6 @@
                 setTimeout(() => {
                     document.getElementById('membership-card-container').scrollIntoView({ behavior: 'smooth' });
                 }, 500);
-                
-                // Show sync indicator
-                showSyncIndicator();
-                updateStats();
             });
             
             // Membership card download functionality
@@ -2831,26 +2669,12 @@
                 
                 document.getElementById('comments-list').prepend(newComment);
                 
-                const commentData = {
-                    name: name,
-                    text: text,
-                    date: dateStr
-                };
-                
-                const existingComments = JSON.parse(localStorage.getItem('rlp_comments')) || [];
-                existingComments.unshift(commentData);
-                localStorage.setItem('rlp_comments', JSON.stringify(existingComments));
-                
                 document.getElementById('comment-name').value = '';
                 document.getElementById('comment-text').value = '';
                 
                 document.getElementById('comment-message').textContent = 'आपकी टिप्पणी सफलतापूर्वक जमा कर दी गई है!';
                 document.getElementById('comment-message').className = 'message success';
                 document.getElementById('comment-message').style.display = 'block';
-                
-                // Show sync indicator
-                showSyncIndicator();
-                updateStats();
             });
         }
         
@@ -2886,611 +2710,6 @@
         function initProductButtons() {
             // This can be expanded as needed
         }
-        
-        // Add a new leader
-        function addLeader() {
-            const name = document.getElementById('leader-name').value;
-            const position = document.getElementById('leader-position').value;
-            const description = document.getElementById('leader-desc').value;
-            const photo = document.getElementById('leader-photo').value;
-            
-            if (!name || !position || !description || !photo) {
-                alert('कृपया सभी फ़ील्ड भरें');
-                return;
-            }
-            
-            const leader = {
-                name,
-                position,
-                description,
-                photo
-            };
-            
-            const leaders = JSON.parse(localStorage.getItem('rlp_leaders')) || [];
-            leaders.push(leader);
-            localStorage.setItem('rlp_leaders', JSON.stringify(leaders));
-            
-            document.getElementById('leader-name').value = '';
-            document.getElementById('leader-position').value = '';
-            document.getElementById('leader-desc').value = '';
-            document.getElementById('leader-photo').value = '';
-            
-            loadLeaders();
-            loadAdminLeaders();
-            
-            alert('नेता सफलतापूर्वक जोड़ा गया!');
-            
-            // Show sync indicator
-            showSyncIndicator();
-        }
-        
-        // Add a new gallery item
-        function addGalleryItem() {
-            const title = document.getElementById('gallery-title').value;
-            const image = document.getElementById('gallery-image').value;
-            
-            if (!title || !image) {
-                alert('कृपया सभी फ़ील्ड भरें');
-                return;
-            }
-            
-            const galleryItem = {
-                title,
-                image
-            };
-            
-            const gallery = JSON.parse(localStorage.getItem('rlp_gallery')) || [];
-            gallery.push(galleryItem);
-            localStorage.setItem('rlp_gallery', JSON.stringify(gallery));
-            
-            document.getElementById('gallery-title').value = '';
-            document.getElementById('gallery-image').value = '';
-            
-            loadGallery();
-            loadAdminGallery();
-            
-            alert('गैलरी आइटम सफलतापूर्वक जोड़ा गया!');
-            
-            // Show sync indicator
-            showSyncIndicator();
-        }
-        
-        // Add a new product
-        function addProduct() {
-            const name = document.getElementById('product-name').value;
-            const description = document.getElementById('product-desc').value;
-            const link = document.getElementById('product-link').value;
-            
-            if (!name || !description || !link) {
-                alert('कृपया सभी फ़ील्ड भरें');
-                return;
-            }
-            
-            const product = {
-                name,
-                description,
-                link
-            };
-            
-            const products = JSON.parse(localStorage.getItem('rlp_products')) || [];
-            products.push(product);
-            localStorage.setItem('rlp_products', JSON.stringify(products));
-            
-            document.getElementById('product-name').value = '';
-            document.getElementById('product-desc').value = '';
-            document.getElementById('product-link').value = '';
-            
-            loadProducts();
-            loadAdminProducts();
-            
-            alert('उत्पाद सफलतापूर्वक जोड़ा गया!');
-            
-            // Show sync indicator
-            showSyncIndicator();
-        }
-        
-        // Add a new video
-        function addVideo() {
-            const title = document.getElementById('video-title').value;
-            const url = document.getElementById('video-url').value;
-            
-            if (!title || !url) {
-                alert('कृपया सभी फ़ील्ड भरें');
-                return;
-            }
-            
-            const video = {
-                title,
-                url
-            };
-            
-            const videos = JSON.parse(localStorage.getItem('rlp_videos')) || [];
-            videos.push(video);
-            localStorage.setItem('rlp_videos', JSON.stringify(videos));
-            
-            document.getElementById('video-title').value = '';
-            document.getElementById('video-url').value = '';
-            
-            loadVideos();
-            loadAdminVideos();
-            
-            alert('वीडियो सफलतापूर्वक जोड़ा गया!');
-            
-            // Show sync indicator
-            showSyncIndicator();
-        }
-        
-        // Add a news item
-        function addNews() {
-            const title = document.getElementById('news-title').value;
-            const description = document.getElementById('news-desc').value;
-            const image = document.getElementById('news-image').value;
-            
-            if (!title || !description || !image) {
-                alert('कृपया सभी फ़ील्ड भरें');
-                return;
-            }
-            
-            const newsItem = {
-                title,
-                description,
-                image,
-                date: new Date().toLocaleDateString('hi-IN')
-            };
-            
-            const news = JSON.parse(localStorage.getItem('rlp_news')) || [];
-            news.push(newsItem);
-            localStorage.setItem('rlp_news', JSON.stringify(news));
-            
-            document.getElementById('news-title').value = '';
-            document.getElementById('news-desc').value = '';
-            document.getElementById('news-image').value = '';
-            
-            loadNews();
-            loadAdminNews();
-            
-            alert('समाचार सफलतापूर्वक जोड़ा गया!');
-            
-            // Show sync indicator
-            showSyncIndicator();
-            updateStats();
-        }
-        
-        // Update party logo
-        function updateLogo() {
-            const logoUrl = document.getElementById('logo-url').value;
-            
-            if (!logoUrl) {
-                alert('कृपया लोगो URL दर्ज करें');
-                return;
-            }
-            
-            localStorage.setItem('rlp_logo_url', logoUrl);
-            
-            // Update logo preview
-            document.getElementById('current-logo-preview').src = logoUrl;
-            
-            alert('लोगो सफलतापूर्वक अपडेट किया गया!');
-            
-            // Show sync indicator
-            showSyncIndicator();
-        }
-        
-        // Export members data
-        function exportMembers() {
-            const members = JSON.parse(localStorage.getItem('rlp_members')) || [];
-            if (members.length === 0) {
-                alert('कोई सदस्य डेटा नहीं है');
-                return;
-            }
-            
-            let csvContent = "data:text/csv;charset=utf-8,";
-            csvContent += "ID,Name,Email,Phone,Address,Date\n";
-            
-            members.forEach(member => {
-                csvContent += `${member.id},${member.name},${member.email},${member.phone},${member.address},${member.date}\n`;
-            });
-            
-            const encodedUri = encodeURI(csvContent);
-            const link = document.createElement("a");
-            link.setAttribute("href", encodedUri);
-            link.setAttribute("download", "rlp_members.csv");
-            document.body.appendChild(link);
-            
-            link.click();
-            document.body.removeChild(link);
-        }
-        
-        // Load members for admin panel
-        function loadMembers() {
-            const membersTable = document.getElementById('members-table');
-            const members = JSON.parse(localStorage.getItem('rlp_members')) || [];
-            
-            membersTable.innerHTML = '';
-            
-            members.forEach(member => {
-                const newRow = document.createElement('tr');
-                newRow.innerHTML = `
-                    <td>${member.id}</td>
-                    <td>${member.name}</td>
-                    <td>${member.email}</td>
-                    <td>${member.phone}</td>
-                    <td>${member.address}</td>
-                    <td>
-                        <button class="action-btn delete" data-id="${member.id}">हटाएं</button>
-                    </td>
-                `;
-                membersTable.appendChild(newRow);
-            });
-            
-            // Add delete functionality
-            document.querySelectorAll('.action-btn.delete').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const memberId = this.getAttribute('data-id');
-                    deleteMember(memberId);
-                });
-            });
-        }
-        
-        // Load leaders for admin panel
-        function loadAdminLeaders() {
-            const leadersTable = document.getElementById('leaders-table');
-            const leaders = JSON.parse(localStorage.getItem('rlp_leaders')) || [];
-            
-            leadersTable.innerHTML = '';
-            
-            leaders.forEach((leader, index) => {
-                const newRow = document.createElement('tr');
-                newRow.innerHTML = `
-                    <td>${leader.name}</td>
-                    <td>${leader.position}</td>
-                    <td>${leader.description.substring(0, 50)}...</td>
-                    <td>
-                        <button class="action-btn delete" data-index="${index}">हटाएं</button>
-                    </td>
-                `;
-                leadersTable.appendChild(newRow);
-            });
-            
-            // Add delete functionality
-            document.querySelectorAll('#leaders-table .action-btn.delete').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const index = this.getAttribute('data-index');
-                    deleteLeader(index);
-                });
-            });
-        }
-        
-        // Load gallery for admin panel
-        function loadAdminGallery() {
-            const galleryTable = document.getElementById('gallery-table');
-            const gallery = JSON.parse(localStorage.getItem('rlp_gallery')) || [];
-            
-            galleryTable.innerHTML = '';
-            
-            gallery.forEach((item, index) => {
-                const newRow = document.createElement('tr');
-                newRow.innerHTML = `
-                    <td>${item.title}</td>
-                    <td><img src="${item.image}" alt="${item.title}" style="width: 100px; height: auto;"></td>
-                    <td>
-                        <button class="action-btn delete" data-index="${index}">हटाएं</button>
-                    </td>
-                `;
-                galleryTable.appendChild(newRow);
-            });
-            
-            // Add delete functionality
-            document.querySelectorAll('#gallery-table .action-btn.delete').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const index = this.getAttribute('data-index');
-                    deleteGalleryItem(index);
-                });
-            });
-        }
-        
-        // Load videos for admin panel
-        function loadAdminVideos() {
-            const videosTable = document.getElementById('videos-table');
-            const videos = JSON.parse(localStorage.getItem('rlp_videos')) || [];
-            
-            videosTable.innerHTML = '';
-            
-            videos.forEach((video, index) => {
-                const newRow = document.createElement('tr');
-                newRow.innerHTML = `
-                    <td>${video.title}</td>
-                    <td>${video.url.substring(0, 50)}...</td>
-                    <td>
-                        <button class="action-btn delete" data-index="${index}">हटाएं</button>
-                    </td>
-                `;
-                videosTable.appendChild(newRow);
-            });
-            
-            // Add delete functionality
-            document.querySelectorAll('#videos-table .action-btn.delete').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const index = this.getAttribute('data-index');
-                    deleteVideo(index);
-                });
-            });
-        }
-        
-        // Load news for admin panel
-        function loadAdminNews() {
-            const newsTable = document.getElementById('news-table');
-            const news = JSON.parse(localStorage.getItem('rlp_news')) || [];
-            
-            newsTable.innerHTML = '';
-            
-            news.forEach((item, index) => {
-                const newRow = document.createElement('tr');
-                newRow.innerHTML = `
-                    <td>${item.title}</td>
-                    <td>${item.description.substring(0, 50)}...</td>
-                    <td><img src="${item.image}" alt="${item.title}" style="width: 80px; height: auto;"></td>
-                    <td>
-                        <button class="action-btn delete" data-index="${index}">हटाएं</button>
-                    </td>
-                `;
-                newsTable.appendChild(newRow);
-            });
-            
-            // Add delete functionality
-            document.querySelectorAll('#news-table .action-btn.delete').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const index = this.getAttribute('data-index');
-                    deleteNewsItem(index);
-                });
-            });
-        }
-        
-        // Load products for admin panel
-        function loadAdminProducts() {
-            const productsTable = document.getElementById('products-table');
-            const products = JSON.parse(localStorage.getItem('rlp_products')) || [];
-            
-            productsTable.innerHTML = '';
-            
-            products.forEach((product, index) => {
-                const newRow = document.createElement('tr');
-                newRow.innerHTML = `
-                    <td>${product.name}</td>
-                    <td>${product.description.substring(0, 50)}...</td>
-                    <td>${product.link.substring(0, 30)}...</td>
-                    <td>
-                        <button class="action-btn delete" data-index="${index}">हटाएं</button>
-                    </td>
-                `;
-                productsTable.appendChild(newRow);
-            });
-            
-            // Add delete functionality
-            document.querySelectorAll('#products-table .action-btn.delete').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const index = this.getAttribute('data-index');
-                    deleteProduct(index);
-                });
-            });
-        }
-        
-        // Load comments for admin panel
-        function loadAdminComments() {
-            const commentsTable = document.getElementById('comments-table');
-            const comments = JSON.parse(localStorage.getItem('rlp_comments')) || [];
-            
-            commentsTable.innerHTML = '';
-            
-            comments.forEach((comment, index) => {
-                const newRow = document.createElement('tr');
-                newRow.innerHTML = `
-                    <td>${comment.name}</td>
-                    <td>${comment.text.substring(0, 50)}...</td>
-                    <td>${comment.date}</td>
-                    <td>
-                        <button class="action-btn delete" data-index="${index}">हटाएं</button>
-                    </td>
-                `;
-                commentsTable.appendChild(newRow);
-            });
-            
-            // Add delete functionality
-            document.querySelectorAll('#comments-table .action-btn.delete').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const index = this.getAttribute('data-index');
-                    deleteComment(index);
-                });
-            });
-        }
-        
-        // Delete a member
-        function deleteMember(id) {
-            let members = JSON.parse(localStorage.getItem('rlp_members')) || [];
-            members = members.filter(member => member.id !== id);
-            localStorage.setItem('rlp_members', JSON.stringify(members));
-            loadMembers();
-            showSyncIndicator();
-            updateStats();
-        }
-        
-        // Delete a leader
-        function deleteLeader(index) {
-            let leaders = JSON.parse(localStorage.getItem('rlp_leaders')) || [];
-            leaders.splice(index, 1);
-            localStorage.setItem('rlp_leaders', JSON.stringify(leaders));
-            loadLeaders();
-            loadAdminLeaders();
-            showSyncIndicator();
-        }
-        
-        // Delete a gallery item
-        function deleteGalleryItem(index) {
-            let gallery = JSON.parse(localStorage.getItem('rlp_gallery')) || [];
-            gallery.splice(index, 1);
-            localStorage.setItem('rlp_gallery', JSON.stringify(gallery));
-            loadGallery();
-            loadAdminGallery();
-            showSyncIndicator();
-        }
-        
-        // Delete a video
-        function deleteVideo(index) {
-            let videos = JSON.parse(localStorage.getItem('rlp_videos')) || [];
-            videos.splice(index, 1);
-            localStorage.setItem('rlp_videos', JSON.stringify(videos));
-            loadVideos();
-            loadAdminVideos();
-            showSyncIndicator();
-        }
-        
-        // Delete a news item
-        function deleteNewsItem(index) {
-            let news = JSON.parse(localStorage.getItem('rlp_news')) || [];
-            news.splice(index, 1);
-            localStorage.setItem('rlp_news', JSON.stringify(news));
-            loadNews();
-            loadAdminNews();
-            showSyncIndicator();
-            updateStats();
-        }
-        
-        // Delete a product
-        function deleteProduct(index) {
-            let products = JSON.parse(localStorage.getItem('rlp_products')) || [];
-            products.splice(index, 1);
-            localStorage.setItem('rlp_products', JSON.stringify(products));
-            loadProducts();
-            loadAdminProducts();
-            showSyncIndicator();
-        }
-        
-        // Delete a comment
-        function deleteComment(index) {
-            let comments = JSON.parse(localStorage.getItem('rlp_comments')) || [];
-            comments.splice(index, 1);
-            localStorage.setItem('rlp_comments', JSON.stringify(comments));
-            loadComments();
-            loadAdminComments();
-            showSyncIndicator();
-            updateStats();
-        }
-        
-        // Initialize with sample data
-        function initializeSampleData() {
-            if (!localStorage.getItem('rlp_leaders')) {
-                const leaders = [
-                    {
-                        name: "हनुमान बेनीवाल",
-                        position: "राष्ट्रीय संयोजक, RLP",
-                        description: "2018 में स्थापित राष्ट्रीय लोकतांत्रिक पार्टी के संस्थापक। युवाओं, किसानों और मजदूरों के हक के लिए संघर्षरत। 2019 से नागौर से लोकसभा सांसद।",
-                        photo: "https://images.unsplash.com/photo-1580136605362-0c4cb6e34c8f?ixlib=rb-4.0.3"
-                    },
-                    {
-                        name: "डॉ. प्रकाश चौधरी",
-                        position: "जिला संयोजक, बाड़मेर",
-                        description: "युवा चेहरा और सोशल मीडिया प्रमुख। बाड़मेर-जैसलमेर बेल्ट में RLP की लोकप्रियता बढ़ाने में अग्रणी भूमिका।",
-                        photo: "https://images.unsplash.com/photo-1580136605362-0c4cb6e34c8f?ixlib=rb-4.0.3"
-                    }
-                ];
-                localStorage.setItem('rlp_leaders', JSON.stringify(leaders));
-            }
-            
-            if (!localStorage.getItem('rlp_products')) {
-                const products = [
-                    {
-                        name: "RLP विचारधारा पुस्तिका",
-                        description: "पार्टी की मूल विचारधारा, सिद्धांतों और भविष्य की योजनाओं पर विस्तृत जानकारी।",
-                        link: "#"
-                    },
-                    {
-                        name: "RLP मर्चेंडाइज",
-                        description: "पार्टी के रंगों और प्रतीक चिन्ह वाले टी-शर्ट, टोपी और अन्य सामग्री।",
-                        link: "#"
-                    },
-                    {
-                        name: "RLP मोबाइल ऐप",
-                        description: "पार्टी की नवीनतम गतिविधियों, रैलियों और कार्यक्रमों से अपडेट रहें।",
-                        link: "#"
-                    }
-                ];
-                localStorage.setItem('rlp_products', JSON.stringify(products));
-            }
-            
-            if (!localStorage.getItem('rlp_gallery')) {
-                const gallery = [
-                    {
-                        title: "रैली 2023",
-                        image: "https://images.unsplash.com/photo-1580136605362-0c4cb6e34c8f?ixlib=rb-4.0.3"
-                    },
-                    {
-                        title: "युवा सम्मेलन",
-                        image: "https://images.unsplash.com/photo-1580136605362-0c4cb6e34c8f?ixlib=rb-4.0.3"
-                    },
-                    {
-                        title: "किसान सभा",
-                        image: "https://images.unsplash.com/photo-1580136605362-0c4cb6e34c8f?ixlib=rb-4.0.3"
-                    }
-                ];
-                localStorage.setItem('rlp_gallery', JSON.stringify(gallery));
-            }
-            
-            if (!localStorage.getItem('rlp_videos')) {
-                const videos = [
-                    {
-                        title: "राजस्थान में RLP का प्रभाव",
-                        url: "https://www.youtube.com/embed/dQw4w9WgXcQ"
-                    },
-                    {
-                        title: "युवा नेता सम्मेलन",
-                        url: "https://www.youtube.com/embed/dQw4w9WgXcQ"
-                    }
-                ];
-                localStorage.setItem('rlp_videos', JSON.stringify(videos));
-            }
-            
-            if (!localStorage.getItem('rlp_news')) {
-                const news = [
-                    {
-                        title: "बाड़मेर में RLP की जनसभा",
-                        description: "राष्ट्रीय लोकतांत्रिक पार्टी ने बाड़मेर में एक विशाल जनसभा का आयोजन किया, जिसमें हजारों समर्थकों ने भाग लिया।",
-                        image: "https://images.unsplash.com/photo-1580136605362-0c4cb6e34c8f?ixlib=rb-4.0.3",
-                        date: "15 जून 2025"
-                    },
-                    {
-                        title: "युवा नीति पर कार्यशाला",
-                        description: "पार्टी ने युवा नीतियों पर एक कार्यशाला का आयोजन किया, जिसमें राज्य भर के युवा नेताओं ने भाग लिया।",
-                        image: "https://images.unsplash.com/photo-1580136605362-0c4cb6e34c8f?ixlib=rb-4.0.3",
-                        date: "10 जून 2025"
-                    }
-                ];
-                localStorage.setItem('rlp_news', JSON.stringify(news));
-            }
-            
-            if (!localStorage.getItem('rlp_comments')) {
-                const comments = [
-                    {
-                        name: "नरेश कुमार",
-                        text: "RLP हमारे क्षेत्र के विकास के लिए अच्छा काम कर रही है। युवाओं के लिए अच्छे कार्यक्रम हैं।",
-                        date: "22 जून 2025"
-                    },
-                    {
-                        name: "सीमा शर्मा",
-                        text: "किसानों की समस्याओं को हल करने के लिए धन्यवाद। हम आपके साथ हैं!",
-                        date: "20 जून 2025"
-                    }
-                ];
-                localStorage.setItem('rlp_comments', JSON.stringify(comments));
-            }
-        }
-        
-        // Show sync indicator
-        function showSyncIndicator() {
-            syncIndicator.classList.add('show');
-            setTimeout(() => {
-                syncIndicator.classList.remove('show');
-            }, 3000);
-        }
     </script>
 </body>
-</html>
+    </html>
